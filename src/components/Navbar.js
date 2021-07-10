@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
 const ColorPalette = () => {
-
-  const colorBubbleStyling = "w-10 h-10 lg:w-6 lg:h-6 md:w-8 md:h-8 rounded-full mb-5 lg:mb-8"; 
+  const colorBubbleStyling = "lg:w-6 lg:h-6 w-8 h-8 rounded-full mb-5 lg:mb-8";
 
   return (
     <>
@@ -16,21 +15,24 @@ const ColorPalette = () => {
 };
 
 const Navbar = () => {
-
   const [toggled, setToggle] = useState(true);
 
   const handleClick = () => {
-    setToggle(!toggled)
-  }
+    setToggle(!toggled);
+  };
 
   return (
-    <div className="flex flex-col border-r-2 w-20 h-screen justify-start items-center pt-5">
-      <button onClick={handleClick} className="bg-black mb-5 lg:mb-8 text-white w-12 h-12 rounded-full text-5xl font-light">
+    <div className="flex flex-col border-r-2 px-8 md:w-28 h-screen justify-start items-center pt-5">
+      <h4 className="text-xl mt-5">Docket</h4>
+      <button
+        onClick={handleClick}
+        className="bg-black mt-16 mb-5 lg:mb-8 text-white w-10 h-10 rounded-full text-4xl outline-none font-light"
+      >
         +
       </button>
-      {toggled ? <ColorPalette/> : false}
+      {toggled ? <ColorPalette /> : false}
     </div>
   );
-};  
+};
 
 export default Navbar;
