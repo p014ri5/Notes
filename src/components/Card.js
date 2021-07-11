@@ -1,4 +1,4 @@
-import { useRef, useContext, useEffect } from "react";
+import { useRef, useContext } from "react";
 import { NotesContext } from "../context/NotesContext";
 import { produce } from "immer";
 

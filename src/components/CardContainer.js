@@ -1,10 +1,10 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import { NotesContext } from "../context/NotesContext.js";
 
 import Card from "./Card.js";
 
 const CardContainer = () => {
-  const [notes, setNotes] = useContext(NotesContext);
+  const [notes] = useContext(NotesContext);
 
   return (
     <div className="h-screen px-16 overflow-scroll pt-16 flex flex-wrap">

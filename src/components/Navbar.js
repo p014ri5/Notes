@@ -50,7 +50,7 @@ const ColorPalette = () => {
 };
 
 const Navbar = () => {
-  const [toggled, setToggle] = useState(true);
+  const [toggled, setToggle] = useState(false);
 
   const handleClick = () => {
     setToggle(!toggled);
