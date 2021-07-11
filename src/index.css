@@ -5,3 +5,7 @@
 button {
   -webkit-tap-highlight-color: transparent;
 }
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+}

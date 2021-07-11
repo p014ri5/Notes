@@ -1,15 +1,50 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { NotesContext } from "../context/NotesContext";
+import { nanoid } from "nanoid";
 
 const ColorPalette = () => {
-  const colorBubbleStyling = "lg:w-6 lg:h-6 w-8 h-8 rounded-full mb-5 lg:mb-8";
+  const [notes, setNotes] = useContext(NotesContext);
+
+  const createNote = (e) => {
+    let setColor = e.target.classList[e.target.classList.length - 1];
+    let now = String(new Date()).split(" ");
+    let setDate = `${now[1]} ${now[2]}, ${now[3]}`;
+    setNotes([
+      {
+        color: setColor,
+        text: "",
+        date: setDate,
+        key: nanoid(),
+      },
+      ...notes,
+    ]);
+  };
+
+  const colorBubbleStyling =
+    "cursor-pointer lg:w-6 lg:h-6 w-8 h-8 rounded-full mb-5 lg:mb-8";
 
   return (
     <>
-      <div className={`${colorBubbleStyling} bg-yellow-300`}></div>
-      <div className={`${colorBubbleStyling} bg-red-300`}></div>
-      <div className={`${colorBubbleStyling} bg-purple-300`}></div>
-      <div className={`${colorBubbleStyling} bg-blue-300`}></div>
-      <div className={`${colorBubbleStyling} bg-green-300`}></div>
+      <div
+        className={`${colorBubbleStyling} bg-yellow-300`}
+        onClick={createNote}
+      ></div>
+      <div
+        className={`${colorBubbleStyling} bg-red-300`}
+        onClick={createNote}
+      ></div>
+      <div
+        className={`${colorBubbleStyling} bg-purple-300`}
+        onClick={createNote}
+      ></div>
+      <div
+        className={`${colorBubbleStyling} bg-blue-300`}
+        onClick={createNote}
+      ></div>
+      <div
+        className={`${colorBubbleStyling} bg-green-300`}
+        onClick={createNote}
+      ></div>
     </>
   );
 };

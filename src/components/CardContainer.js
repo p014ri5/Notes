@@ -1,12 +1,24 @@
+import { useContext, useState, useEffect } from "react";
+import { NotesContext } from "../context/NotesContext.js";
+
 import Card from "./Card.js";
 
 const CardContainer = () => {
+  const [notes, setNotes] = useContext(NotesContext);
+
   return (
     <div className="h-screen px-16 overflow-scroll pt-16 flex flex-wrap">
-      <Card color="bg-red-300" />
-      <Card color="bg-purple-300" />
-      <Card color="bg-green-300" />
-      <Card color="bg-blue-300" />
+      {notes.map((note) => {
+        return (
+          <Card
+            text={note.text}
+            color={note.color}
+            date={note.date}
+            id={note.key}
+            key={note.key}
+          />
+        );
+      })}
     </div>
   );
 };
